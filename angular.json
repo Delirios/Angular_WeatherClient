@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Angular-WeatherClient"
+    }
+  },
+  "defaultProject": "Angular-WeatherClient",
+  "cli": {
+    "analytics": "ff24105a-98ad-4438-831d-586a7646eb35"
+  }
 }
