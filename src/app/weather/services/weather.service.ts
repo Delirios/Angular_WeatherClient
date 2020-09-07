@@ -1,4 +1,4 @@
-import { IWeather } from './current-weather';
+import { IRoot } from './../models/current-weather';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -17,9 +17,9 @@ export class WeatherService{
 
     constructor(private http: HttpClient){}
 
-    getWeather() : Observable<IWeather>
+    getWeather() : Observable<IRoot>
     {
-        return this.http.get<IWeather>(this.weatherUrl).pipe(
+        return this.http.get<IRoot>(this.weatherUrl).pipe(
             tap(data => console.log('All' + JSON.stringify(data))),
             catchError(this.handleError)
             );

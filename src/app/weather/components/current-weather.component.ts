@@ -1,6 +1,6 @@
-import { WeatherService } from './weather.service';
+import { WeatherService } from './../services/weather.service'
 import { Component, OnInit} from '@angular/core';
-import { IWeather } from './current-weather';
+import { IRoot } from './../models/current-weather';
 
 
 @Component({
@@ -13,10 +13,10 @@ export class CurrentWeatherComponent implements OnInit {
 
     constructor(private weatherService : WeatherService ){}
     errorMessage = '';
-    weather: IWeather;
+    current_weather: IRoot;
     ngOnInit(): void {
         this.weatherService.getWeather().subscribe({
-        next: weather => this.weather = weather,
+        next: current_weather => this.current_weather = current_weather,
         error: err => this.errorMessage = err
         })
     }

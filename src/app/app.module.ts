@@ -1,6 +1,6 @@
 import { MaterialModule } from './shared/material.module';
 import { RouterModule } from '@angular/router';
-import { CurrentWeatherComponent } from './weather/current-weather.component';
+import { CurrentWeatherComponent } from './weather/components/current-weather.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
