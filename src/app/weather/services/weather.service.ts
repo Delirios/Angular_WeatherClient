@@ -13,17 +13,20 @@ export class WeatherService{
     
     //private weatherUrl = 'assets/weather/weather.json';;
 
-    private weatherUrl = 'https://weatherservicewebapi.azurewebsites.net/api/Weather/Lviv';
+    private  weatherUrl = 'https://weatherservicewebapi.azurewebsites.net/api/Weather/';
 
+    current_weather : IRoot
     constructor(private http: HttpClient){}
 
-    getWeather() : Observable<IRoot>
+    getWeather(cityName :string) : Observable<IRoot>
     {
-        return this.http.get<IRoot>(this.weatherUrl).pipe(
+        return this.http.get<IRoot>(`https://weatherservicewebapi.azurewebsites.net/api/Weather/${cityName}`).pipe(
             tap(data => console.log('All' + JSON.stringify(data))),
             catchError(this.handleError)
             );
     }
+
+    
 
     private handleError(err: HttpErrorResponse)
     {

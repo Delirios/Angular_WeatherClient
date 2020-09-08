@@ -1,3 +1,5 @@
+import { NgIf } from '@angular/common';
+
 export interface IRoot
 {
     name : string
@@ -6,8 +8,14 @@ export interface IRoot
     wind : IWind
     sys : ISystem
 }
-export interface IWeather{
-    descriprion : string
+export interface ISystem{
+    country : string
+    sunrise : number
+    sunset : number
+}
+export interface IWeather {
+    id : number
+    description : string
     icon : string
 }
 export interface IMain {
@@ -18,9 +26,4 @@ export interface IMain {
 }
 export interface IWind{
     speed : number
-}
-export interface ISystem{
-    country : string
-    sunrice : number
-    sunset : number
 }
