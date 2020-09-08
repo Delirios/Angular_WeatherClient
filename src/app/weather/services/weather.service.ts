@@ -1,4 +1,4 @@
-import { IWeather } from './current-weather';
+import { IRoot } from './../models/current-weather';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -13,17 +13,20 @@ export class WeatherService{
     
     //private weatherUrl = 'assets/weather/weather.json';;
 
-    private weatherUrl = 'https://weatherservicewebapi.azurewebsites.net/api/Weather/Lviv';
+    private  weatherUrl = 'https://weatherservicewebapi.azurewebsites.net/api/Weather/';
 
+    current_weather : IRoot
     constructor(private http: HttpClient){}
 
-    getWeather() : Observable<IWeather>
+    getWeather(cityName :string) : Observable<IRoot>
     {
-        return this.http.get<IWeather>(this.weatherUrl).pipe(
+        return this.http.get<IRoot>(`https://weatherservicewebapi.azurewebsites.net/api/Weather/${cityName}`).pipe(
             tap(data => console.log('All' + JSON.stringify(data))),
             catchError(this.handleError)
             );
     }
+
+    
 
     private handleError(err: HttpErrorResponse)
     {
