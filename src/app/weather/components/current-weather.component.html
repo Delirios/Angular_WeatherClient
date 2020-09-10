@@ -1,17 +1,37 @@
-<mat-card class="container-1">
-<mat-card tabindex="0" class="box-1">
-  <mat-card-actions>
-    <h1 id = "demo">Введіть місто</h1>
-          <input  (input)="cityName=$event.target.value" matInput="text" /> <br><br>
-          <button mat-raised-button color="primary" (click) = "ShowWeather(cityName)">ОК</button>
-        </mat-card-actions>
-</mat-card>
-<mat-card class="box-2"> 
-  <h1>Погода y {{current_weather?.name}} 
-    <div *ngFor="let item of current_weather?.weather">
+<div class="main-container">
+  <mat-card class="mat-elevation-z5 weather-card">
+    <mat-card-actions >
+      <h1 id = "demo">Введіть місто</h1>
+            <input  (input)="cityName=$event.target.value" matInput="text" /> <br><br>
+            <button mat-raised-button color="primary" (click) = "ShowWeather(cityName)">ОК</button>
+          </mat-card-actions>
+  </mat-card >
+
+  <mat-card class="mat-elevation-z5 your-location-weather-card"> 
+      <mat-card-title class="title big-text">{{current_weather?.name}} </mat-card-title> 
+      <!-- <mat-card-subtitle> Сегодня: 10 июля, 2020 </mat-card-subtitle>  -->
+    <!-- <h1>Погода y {{current_weather?.name}} </h1> -->
+  
+    <div class="flex-row">
+      <div class="temp">
+        <span class="big-text">{{current_weather?.main.temp.toFixed()}} °C</span>
+        <span>Відчувається</span>
+        <span class="middle-text">{{current_weather?.main.feels_like.toFixed()}} °C</span>
+      </div>
+      <div class="outlook">
+        <div *ngFor="let item of current_weather?.weather">
+          <img src="assets/images/{{item?.icon}}.png">
+          <span>{{item?.description}}</span>
+          </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+  
+  
+    <!-- <div *ngFor="let item of current_weather?.weather">
       <img src="assets/images/{{item?.icon}}.png">
     </div>
-  </h1>
         <div>
           <mat-list >
             <mat-list-item>Поточна температура: {{current_weather?.main.temp}} °C</mat-list-item>
@@ -20,6 +40,5 @@
             <mat-divider></mat-divider>
             <mat-list-item>Швидкість вітру: {{current_weather?.wind.speed}} м\с</mat-list-item>
           </mat-list>
-        </div>
-</mat-card>
-</mat-card>
+        </div> -->
+
