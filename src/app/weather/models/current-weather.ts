@@ -1,5 +1,3 @@
-import { NgIf } from '@angular/common';
-
 export interface IRoot
 {
     name : string

@@ -10,8 +10,6 @@ import{catchError, tap} from 'rxjs/operators'
 })
 
 export class WeatherService{
-    
-    //private weatherUrl = 'assets/weather/weather.json';;
 
     private  weatherUrl = 'https://weatherservicewebapi.azurewebsites.net/api/Weather/';
 
