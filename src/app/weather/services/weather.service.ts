@@ -26,6 +26,27 @@ export class WeatherService{
             );
     }
 
+    getWeatherByLocation(lon : number, lat : number) : Observable<IRoot>{
+        return this.http.get<IRoot>(`https://weatherservicewebapi.azurewebsites.net/api/Weather/${lon}/${lat}`).pipe(
+            tap(data => console.log('All' + JSON.stringify(data))),
+            catchError(this.handleError)
+            );
+    }
+
+
+    getLocation(): Promise<any>
+    {
+      return new Promise((resolve, reject) => {
+  
+        navigator.geolocation.getCurrentPosition(resp => {
+  
+            resolve({lon: resp.coords.longitude, lat: resp.coords.latitude});
+          },
+          err => {
+            reject(err);
+          });
+      });
+    }
     
 
     private handleError(err: HttpErrorResponse)

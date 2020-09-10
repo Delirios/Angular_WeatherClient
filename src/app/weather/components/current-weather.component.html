@@ -1,24 +1,25 @@
 <mat-card class="container-1">
 <mat-card tabindex="0" class="box-1">
   <mat-card-actions>
-    <h1>Введіть місто</h1>
+    <h1 id = "demo">Введіть місто</h1>
           <input  (input)="cityName=$event.target.value" matInput="text" /> <br><br>
           <button mat-raised-button color="primary" (click) = "ShowWeather(cityName)">ОК</button>
+          <button mat-raised-button color="primary" (click) = "GetLocation()">ОК1</button>
         </mat-card-actions>
 </mat-card>
 <mat-card class="box-2"> 
-  <h1>Погода y {{cityName}} 
-    <div *ngFor="let item of current_weather.weather">
-      <img src="assets/images/{{item.icon}}.png">
+  <h1>Погода y {{current_weather?.name}} 
+    <div *ngFor="let item of current_weather?.weather">
+      <img src="assets/images/{{item?.icon}}.png">
     </div>
   </h1>
         <div>
           <mat-list >
-            <mat-list-item>Поточна температура: {{current_weather.main.temp}} °C</mat-list-item>
+            <mat-list-item>Поточна температура: {{current_weather?.main.temp}} °C</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Відчувається як: {{current_weather.main.feels_like}} °C</mat-list-item>
+            <mat-list-item>Відчувається як: {{current_weather?.main.feels_like}} °C</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Швидкість вітру: {{current_weather.wind.speed}} м\с</mat-list-item>
+            <mat-list-item>Швидкість вітру: {{current_weather?.wind.speed}} м\с</mat-list-item>
           </mat-list>
         </div>
 </mat-card>
