@@ -2,15 +2,14 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 5px;
     align-items: center;
 }
-.example-card {
-    display: inline-block;
-    width: 30%;
-    margin: 20px;
-    vertical-align: top;
-    cursor: pointer;
+.main-weather-container{
+  display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5px;
 }
 
 .your-location-weather-card {
@@ -18,9 +17,15 @@
   padding: 20px;
   margin: 5px;
   background: rgb(228, 240, 162);
-  
 }
 .weather-card{
+  min-width: 250px;
+  padding: 20px;
+  margin: 5px;
+  background: lightblue;
+}
+
+.search-card{
     min-width: 250px;
     padding: 20px;
     margin: 5px;
@@ -54,16 +59,15 @@
 }
 div> .outlook {
     color: black;
-    background:  rgb(252, 252, 252);
+    background:  grey;
     flex: 30%
-    
-
   }
 
-  .big-text {
+.big-text {
     font-size: 30px;
 }
 .middle-text{
     font-size: 24px;
 }
+
 

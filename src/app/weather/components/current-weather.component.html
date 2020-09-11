@@ -1,29 +1,68 @@
 <div class="main-container">
-  <mat-card class="mat-elevation-z5 weather-card">
+  <div class="mat-elevation-z-2 search-card" > 
     <mat-card-actions >
-      <h1 id = "demo">Введіть місто</h1>
-            <input  (input)="cityName=$event.target.value" matInput="text" /> <br><br>
-            <button mat-raised-button color="primary" (click) = "ShowWeather(cityName)">ОК</button>
-          </mat-card-actions>
-  </mat-card >
-
+      <h1>Введіть місто</h1>
+            <mat-form-field class="example-form-field">
+              <mat-label>Введіть місто</mat-label>
+              <input matInput type="text" (input)="cityName=$event.target.value">
+            </mat-form-field>
+            <button  mat-button *ngIf="cityName" mat-raised-button color="primary" (click) = "ShowWeather(cityName)">ОК</button>
+    </mat-card-actions>
+  </div>
   <mat-card class="mat-elevation-z5 your-location-weather-card"> 
-      <mat-card-title class="title big-text">{{current_weather?.name}} </mat-card-title>
-  
+      <mat-card-title class="title big-text">{{current_location_weather?.name}} </mat-card-title>
     <div class="flex-row">
       <div class="temp">
-        <span class="big-text">{{current_weather?.main.temp.toFixed()}} °C</span>
+        <span class="big-text">{{current_location_weather?.main.temp.toFixed()}} °C</span>
         <span>Відчувається</span>
-        <span class="middle-text">{{current_weather?.main.feels_like.toFixed()}} °C</span>
+        <span class="middle-text">{{current_location_weather?.main.feels_like.toFixed()}} °C</span>
       </div>
       <div class="outlook">
-        <div *ngFor="let item of current_weather?.weather">
+        <div *ngFor="let item of current_location_weather?.weather">
           <img src="assets/images/{{item?.icon}}.png">
           <span>{{item?.description}}</span>
           </div>
       </div>
     </div>
   </mat-card>
+</div>
+
+<div class="main-weather-container">
+  <mat-card class="mat-elevation-z5 weather-card"> 
+    <mat-card-title class="title big-text">{{current_weather?.name}} </mat-card-title>
+
+    <div class="table-users">
+      
+      <table cellspacing="30">
+         <tr>
+            <th>День</th>
+            <th>Картинка</th>
+            <th>Вологість</th>
+            <th>Тиск</th>
+            <th>Швидкість вітру</th>
+            <th>Температура</th>
+            <th>Схід сонця</th>
+            <th>Захід сонця</th>
+
+         </tr>
+   
+         <tr>
+            <td>Today</td>
+            <td><div *ngFor="let item of current_weather?.weather">
+              <img src="assets/images/{{item?.icon}}.png">
+              </div>
+            </td>
+            <td>{{current_weather?.main.humidity}} %</td>
+            <td>{{current_weather?.main.pressure}} mm</td>
+            <td>{{current_weather?.wind.speed}} м\с</td>
+            <td>{{current_weather?.main.temp.toFixed()}} °C</td>
+            <td>{{current_weather?.sys.sunrise}}</td>
+            <td>{{current_weather?.sys.sunset}}</td>
+         </tr>
+   
+      </table>
+   </div>
+</mat-card>
 </div>
   
 
