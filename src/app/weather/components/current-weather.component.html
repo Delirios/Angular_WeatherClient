@@ -1,6 +1,6 @@
 <div class="main-container">
   <div class="mat-elevation-z-2 search-card" > 
-    <mat-card-actions >
+    <mat-card-actions class="middle-text">
       <h1>Введіть місто</h1>
             <mat-form-field class="example-form-field">
               <mat-label>Введіть місто</mat-label>
@@ -28,40 +28,67 @@
 </div>
 
 <div class="main-weather-container">
-  <mat-card class="mat-elevation-z5 weather-card"> 
+  <mat-card class="weather-card">  
     <mat-card-title class="title big-text">{{current_weather?.name}} </mat-card-title>
-
-    <div class="table-users">
-      
-      <table cellspacing="30">
-         <tr>
-            <th>День</th>
-            <th>Картинка</th>
-            <th>Вологість</th>
-            <th>Тиск</th>
-            <th>Швидкість вітру</th>
-            <th>Температура</th>
-            <th>Схід сонця</th>
-            <th>Захід сонця</th>
-
-         </tr>
-   
-         <tr>
-            <td>Today</td>
-            <td><div *ngFor="let item of current_weather?.weather">
-              <img src="assets/images/{{item?.icon}}.png">
-              </div>
-            </td>
-            <td>{{current_weather?.main.humidity}} %</td>
-            <td>{{current_weather?.main.pressure}} mm</td>
-            <td>{{current_weather?.wind.speed}} м\с</td>
-            <td>{{current_weather?.main.temp.toFixed()}} °C</td>
-            <td>{{current_weather?.sys.sunrise}}</td>
-            <td>{{current_weather?.sys.sunset}}</td>
-         </tr>
-   
-      </table>
-   </div>
+    
+<div class="flex-container ">
+  <div class="mat-elevation-z5">
+    День
+    <hr class="divider">
+    <div>
+      Today
+    </div>
+  </div>
+  <div class=" mat-elevation-z5">
+    Картинка
+    <hr class="divider">
+      <div *ngFor="let item of current_weather?.weather">
+        <img src="assets/images/{{item?.icon}}.png">
+        </div>
+  </div>
+  <div class=" mat-elevation-z5">
+    Вологість
+    <hr class="divider">
+    <div>
+      {{current_weather?.main.humidity}} %
+    </div>
+  </div>  
+  <div class=" mat-elevation-z5">
+    Тиск
+    <hr class="divider">
+    <div>
+      {{current_weather?.main.pressure}} mm
+    </div>
+  </div>  
+  <div class=" mat-elevation-z5">
+    Швидкість вітру
+    <hr class="divider">
+    <div>
+      {{current_weather?.wind.speed}} м\с
+    </div>
+  </div>  
+  <div class=" mat-elevation-z5">
+    Температура
+    <hr class="divider">
+    <div>
+      {{current_weather?.main.temp.toFixed()}} °C
+    </div>
+  </div>  
+  <div class=" mat-elevation-z5">
+    Схід сонця
+    <hr class="divider">
+    <div>
+      {{current_weather?.sys.sunrise}}
+    </div>
+  </div>  
+  <div class=" mat-elevation-z5">
+    Захід сонця
+    <hr class="divider">
+    <div>
+      {{current_weather?.sys.sunset}}
+    </div>
+  </div>  
+</div>
 </mat-card>
 </div>
   
