@@ -8,7 +8,7 @@ export interface IRoot
 }
 export interface ISystem{
     country : string
-    sunrise : number
+    sunrise : number 
     sunset : number
 }
 export interface IWeather {

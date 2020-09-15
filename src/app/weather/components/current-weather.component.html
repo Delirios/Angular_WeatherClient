@@ -31,7 +31,7 @@
   <mat-card class="weather-card">  
     <mat-card-title class="title big-text">{{current_weather?.name}} </mat-card-title>
     
-<div class="flex-container ">
+<div  id="visible" class="flex-container ">
   <div class="mat-elevation-z5">
     День
     <hr class="divider">
@@ -77,15 +77,15 @@
   <div class=" mat-elevation-z5">
     Схід сонця
     <hr class="divider">
-    <div>
-      {{current_weather?.sys.sunrise}}
+    <div >
+      {{current_weather?.sys.sunrise*1000 | date: 'H:mm:ss'}}
     </div>
   </div>  
   <div class=" mat-elevation-z5">
     Захід сонця
     <hr class="divider">
-    <div>
-      {{current_weather?.sys.sunset}}
+    <div >
+      {{current_weather?.sys.sunset *1000 | date: 'H:mm:ss'}}
     </div>
   </div>  
 </div>

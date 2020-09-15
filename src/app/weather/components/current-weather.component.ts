@@ -24,7 +24,7 @@ export class CurrentWeatherComponent implements OnInit{
                 main : (data as any ).main,
                 wind : (data as any).wind,
                 sys: (data as any).sys,
-                weather: (data  as any).weather
+                weather: (data  as any).weather,
                 
             })
 
@@ -41,18 +41,23 @@ export class CurrentWeatherComponent implements OnInit{
     cityName:string;
     weather : any [];
     errorMessage = '';
+    sunrise : number;
 
-    ShowWeather(cityName){
+
+    ShowWeather(cityName){      
         this.weatherService.getWeather(this.cityName)
         .subscribe((data : IRoot) => this.current_weather = {
             name: (data as any).name,
             main : (data as any ).main,
             wind : (data as any).wind,
-            sys: (data as any).sys,
+            sys: (data as any ).sys,
             weather: (data  as any).weather
-        });
+            
+        }
+        );
+        document.getElementById('visible').style.display = 'flex';
+        
 
     }
-    position : any;
 }
 
