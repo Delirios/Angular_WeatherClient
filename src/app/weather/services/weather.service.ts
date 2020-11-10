@@ -11,21 +11,21 @@ import{catchError, tap} from 'rxjs/operators'
 
 export class WeatherService{
 
-    private  weatherUrl = 'https://weatherservicewebapi.azurewebsites.net/api/Weather/';
+    private  weatherUrl = 'https://weatherservice.us-west-2.elasticbeanstalk.com/api/Weather/';
 
     current_weather : IRoot
     constructor(private http: HttpClient){}
 
     getWeather(cityName :string) : Observable<IRoot>
     {
-        return this.http.get<IRoot>(`https://weatherservicewebapi.azurewebsites.net/api/Weather/${cityName}`).pipe(
+        return this.http.get<IRoot>(`https://weatherservice.us-west-2.elasticbeanstalk.com/api/Weather/${cityName}`).pipe(
             tap(data => console.log('All' + JSON.stringify(data))),
             catchError(this.handleError)
             );
     }
 
     getWeatherByLocation(lon : number, lat : number) : Observable<IRoot>{
-        return this.http.get<IRoot>(`https://weatherservicewebapi.azurewebsites.net/api/Weather/${lon}/${lat}`).pipe(
+        return this.http.get<IRoot>(`https://weatherservice.us-west-2.elasticbeanstalk.com/api/Weather/${lon}/${lat}`).pipe(
             tap(data => console.log('All' + JSON.stringify(data))),
             catchError(this.handleError)
             );
